@@ -5,7 +5,7 @@ from conans import ConanFile, tools
 
 class BotanConan(ConanFile):
     name = "Botan"
-    version = "2.8.0"
+    version = "2.10.0"
     license = "BSD-2-Clause"
     url = "https://github.com/SteffenL/conan-botan"
     description = "Botan is a C++ cryptography library for Modern C++"
