@@ -37,6 +37,11 @@ class BotanConan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = self._get_libs()
 
+        if self.options.shared:
+            self.cpp_info.defines += ["BOTAN_DLL=1"]
+        else:
+            self.cpp_info.defines += ["BOTAN_DLL="]
+
     def _build(self):
         if self.settings.compiler == "Visual Studio":
             vcvars = tools.vcvars_command(self.settings)
