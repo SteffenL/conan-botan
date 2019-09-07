@@ -111,6 +111,10 @@ class BotanConan(ConanFile):
                 ("--cc-abi-flags", self._get_gcc_abi_flags()),
                 ("--cc-min-version", self._get_gcc_version())
             ]]
+        elif self.settings.compiler == "Visual Studio":
+            params += ["=".join(x) for x in [
+                ("--msvc-runtime", str(self.settings.compiler.runtime))
+            ]]
         if self.settings.build_type == "Debug":
             params += ["--debug-mode"]
         if self.options.shared:
